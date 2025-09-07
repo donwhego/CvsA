@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <title>COWBOY vs ALIEN — DISCO SHOWDOWN</title>
 <meta name="description" content="Roswell rencontre The Good, The Bad & The Ugly rencontre Saturday Night Fever. Vendredi 31 octobre 2025, à partir de 19h00. DJ HAMZA ZAZA aux platines !" />
-<!-- Social previews -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="COWBOY vs ALIEN — DISCO SHOWDOWN" />
 <meta property="og:description" content="Halloween — 31/10/2025 — 19h — DJ HAMZA ZAZA — Cowboy disco x Alien glamour." />
@@ -14,83 +13,54 @@
 <meta name="twitter:title" content="COWBOY vs ALIEN — DISCO SHOWDOWN" />
 <meta name="twitter:description" content="Roswell rencontre The Good, The Bad & The Ugly rencontre Saturday Night Fever." />
 <meta name="twitter:image" content="poster.jpg" />
-
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-
 <style>
-/* ----------- PALETTE & TYPE ----------- */
 :root{
-  --bg-deep:#0a051a;
-  --bg-deeper:#050314;
-  --violet:#8b5cff;
-  --magenta:#ff49c6;
-  --aqua:#31e7dd;
-  --yellow:#ffe666;
-  --orange:#ff5a1f;
-  --white:#ffffff;
-
-  --display:"Alfa Slab One", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  --body:"Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-
-  --s-1:clamp(.9rem,.85rem + .3vw,1rem);
-  --s0:clamp(1rem,.9rem + 1vw,1.1rem);
-  --s1:clamp(1.3rem,1.05rem + 2.2vw,1.8rem);
-  --s2:clamp(2.2rem,1.5rem + 4.4vw,3rem);
-  --s3:clamp(3.6rem,2.2rem + 7vw,4.8rem);
-  --s4:clamp(4.8rem,2.8rem + 11vw,7.2rem);
+  --violet:#8b5cff; --magenta:#ff49c6; --aqua:#31e7dd; --yellow:#ffe666; --orange:#ff5a1f;
+  --display:"Alfa Slab One",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --body:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --s-1:clamp(.9rem,.85rem + .3vw,1rem); --s0:clamp(1rem,.9rem + 1vw,1.12rem);
+  --s1:clamp(1.28rem,1.05rem + 2.2vw,1.8rem); --s2:clamp(2rem,1.45rem + 4.4vw,3rem);
+  --s3:clamp(3.2rem,2rem + 7vw,4.8rem); --s4:clamp(4.4rem,2.6rem + 11vw,7rem);
 }
-
-/* ----------- BASE ----------- */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
-  margin:0;color:#fff;font-family:var(--body);
+  margin:0;color:#fff;font-family:var(--body);line-height:1.55;
   background:
-    radial-gradient(1200px 900px at 85% -10%, rgba(255,73,198,.20), transparent 60%),
-    radial-gradient(1200px 900px at 15% -10%, rgba(49,231,221,.18), transparent 60%),
+    radial-gradient(1200px 900px at 85% -10%, rgba(255,73,198,.18), transparent 60%),
+    radial-gradient(1200px 900px at 15% -10%, rgba(49,231,221,.16), transparent 60%),
     linear-gradient(#12082c,#07031a);
-  overflow-x:hidden;
+  overflow-x:hidden; /* prevent side scroll on small phones */
 }
 a{color:var(--aqua)}
-.wrap{max-width:980px;margin-inline:auto;padding-inline:clamp(16px,3vw,28px)}
-
-/* faint vignette + poster texture */
+/* Poster texture + vignette */
 body::after{
-  content:"";
-  position:fixed;inset:0;pointer-events:none;z-index:-2;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.6)),
-    url('poster.jpg') center/cover no-repeat;
-  opacity:.15;mix-blend-mode:screen;
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;
+  background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.6)), url('poster.jpg') center/cover no-repeat;
+  opacity:.12;mix-blend-mode:screen;
 }
 
-/* ----------- HERO (Poster-like layout) ----------- */
+/* ---------- HERO ---------- */
 #hero{
-  position:relative;min-height:100svh;display:grid;place-items:center;
-  text-align:center;overflow:hidden;background:var(--bg-deep);
+  position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden;
+  padding:env(safe-area-inset-top) 0 0;
 }
-
-/* big neon arc/sun */
+/* centered sun/arc */
 .neon-sun{
-  position:absolute;inset:auto 0 38%;margin:auto;height:min(60vh,560px);max-height:70svh;
-  aspect-ratio:1/1;border-radius:50%;
+  position:absolute;left:50%;bottom:38%;transform:translateX(-50%);
+  width:min(110vw,560px);height:min(110vw,560px);border-radius:50%;
   background:
-    radial-gradient(closest-side, #ffffff 0 6%, #ffe6ff 7% 14%, rgba(255,255,255,0) 16%),
+    radial-gradient(closest-side, #ffffff 0 7%, #ffe9ff 8% 14%, rgba(255,255,255,0) 16%),
     radial-gradient(closest-side at 50% 60%, #ff5bd7, #c246ff 40%, #7a4bff 70%, rgba(122,75,255,0) 72%);
-  filter: blur(2px) saturate(1.3);
-  box-shadow:
-    0 0 60px #b07cff,
-    0 0 120px #ff52a2,
-    0 0 160px #33e7dd;
+  filter:blur(2px) saturate(1.3);
+  box-shadow:0 0 60px #b07cff, 0 0 120px #ff52a2, 0 0 160px #33e7dd;
   z-index:0;
 }
-.neon-sun::after{ /* soft horizon fade */
-  content:"";position:absolute;inset:50% -40% -20% -40%;
-  background:linear-gradient(to bottom, rgba(122,75,255,.45), rgba(10,5,26,0) 60%);
-}
-
-/* star dust */
-.star, .star2, .star3{position:absolute;inset:0;z-index:0;pointer-events:none;mix-blend-mode:screen}
+.neon-sun::after{content:"";position:absolute;inset:50% -40% -20% -40%;
+  background:linear-gradient(to bottom, rgba(122,75,255,.45), rgba(10,5,26,0) 60%)}
+/* star layers */
+.star,.star2,.star3{position:absolute;inset:0;z-index:0;pointer-events:none;mix-blend-mode:screen}
 .star{background:
   radial-gradient(1.4px 1.4px at 8% 22%, #fff, transparent 50%),
   radial-gradient(1.4px 1.4px at 74% 12%, #fff, transparent 50%),
@@ -104,11 +74,16 @@ body::after{
   radial-gradient(2px 2px at 40% 30%, #fff, transparent 45%),
   radial-gradient(2px 2px at 15% 70%, #fff, transparent 45%);opacity:.34;animation:sd3 130s linear infinite}
 
-/* headline stack */
-.stack{position:relative;z-index:1;display:grid;gap:.6rem;place-items:center;margin-top:6svh}
+/* centered content stack */
+.stack{
+  position:relative;z-index:1;display:grid;gap:.6rem;place-items:center;
+  width:min(92vw,720px); /* <- keeps perfect centering on mobile */
+  margin-inline:auto;margin-top:clamp(28px,6vh,64px);
+  text-wrap:balance;
+}
 .kicker{
-  letter-spacing:.18em;text-transform:uppercase;font-weight:900;font-size:var(--s0);color:#fff;
-  text-shadow:0 0 10px rgba(255,255,255,.95),0 0 28px rgba(139,92,255,.95),0 0 48px rgba(49,231,221,.9);
+  letter-spacing:.18em;text-transform:uppercase;font-weight:900;font-size:var(--s0);
+  text-shadow:0 0 10px #fff,0 0 28px var(--violet),0 0 48px var(--aqua);
 }
 .title{
   font-family:var(--display);font-size:var(--s4);line-height:1;letter-spacing:.02em;margin:0;
@@ -116,91 +91,77 @@ body::after{
     radial-gradient(110% 180% at 50% -30%, #ffffff 0 8%, rgba(255,255,255,0) 10%),
     conic-gradient(from 190deg, var(--orange), var(--yellow), var(--aqua), var(--magenta), var(--orange));
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  text-shadow:
-    0 0 12px #fff,
-    0 0 40px #8b5cff,
-    0 0 60px #31e7dd,
-    0 0 90px #ff49c6;
+  text-shadow:0 0 12px #fff,0 0 40px var(--violet),0 0 60px var(--aqua),0 0 90px var(--magenta);
 }
 .subtitle{
-  font-weight:900;font-size:var(--s1);color:#fff;margin:0;
-  text-shadow:0 0 10px #fff,0 0 30px #ffe666,0 0 60px #31e7dd;
+  font-weight:900;font-size:var(--s1);margin:0;
+  text-shadow:0 0 10px #fff,0 0 30px var(--yellow),0 0 60px var(--aqua);
 }
 
-/* DJ outlined block like poster */
-.dj-block{
-  margin-top:clamp(16px,2vh,22px);
-  display:inline-grid;gap:.35rem;place-items:center;
-}
+/* DJ block + separators */
+.dj-block{margin-top:clamp(12px,2vh,22px);display:inline-grid;gap:.35rem;place-items:center}
 .dj-name{
   font-weight:900;font-size:var(--s1);letter-spacing:.08em;text-transform:uppercase;color:#fff;
-  -webkit-text-stroke:2px rgba(255,255,255,.9);
-  text-shadow:
-    0 0 12px rgba(255,255,255,1),
-    0 0 36px rgba(139,92,255,1),
-    0 0 60px rgba(49,231,221,1);
+  -webkit-text-stroke:2px rgba(255,255,255,.95);
+  text-shadow:0 0 12px #fff,0 0 36px var(--violet),0 0 60px var(--aqua);
 }
-.dj-name span{ -webkit-text-stroke: 0 currentColor; } /* keep fill opaque */
-
-/* thin separators + date strip */
-.sep{height:1px;width:min(520px,86vw);background:linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent);margin:.5rem auto}
+.sep{height:1px;width:min(520px,86vw);background:linear-gradient(90deg,transparent,rgba(255,255,255,.8),transparent);margin:.45rem auto}
 .date-strip{
   display:flex;gap:.6rem;align-items:center;justify-content:center;
-  font-weight:800;font-size:var(--s-1);letter-spacing:.18em;text-transform:uppercase;color:#fff;
-  text-shadow:0 0 8px #fff, 0 0 22px #8b5cff;
+  font-weight:800;font-size:var(--s-1);letter-spacing:.18em;text-transform:uppercase;
+  text-shadow:0 0 8px #fff,0 0 22px var(--violet);
 }
-.date-strip .line{height:1px;width:64px;background:linear-gradient(90deg, transparent, rgba(255,255,255,.8), transparent)}
+.date-strip .line{height:1px;width:64px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.8),transparent)}
 
-/* grid floor */
+/* Grid floor centered & clipped */
 .floor{
   position:absolute;left:50%;bottom:-1px;translate:-50% 0;
-  width:140vw;height:42svh;max-height:360px;pointer-events:none;
+  width:120vw;max-width:1400px;height:40svh;max-height:360px;pointer-events:none;
   background:
     repeating-linear-gradient(transparent 0 22px, rgba(255,255,255,.18) 22px 23px),
     repeating-linear-gradient(90deg, transparent 0 22px, rgba(255,255,255,.18) 22px 23px),
     radial-gradient(120% 100% at 50% -20%, rgba(139,92,255,.32), rgba(0,0,0,0) 60%);
-  transform: perspective(680px) rotateX(62deg);
-  box-shadow: 0 -30px 60px rgba(139,92,255,.3) inset;
+  transform:perspective(680px) rotateX(62deg);
+  box-shadow:0 -30px 60px rgba(139,92,255,.3) inset;
   animation:gridGlow 6s ease-in-out infinite alternate;
+  clip-path:inset(0 0 0 0 round 0); /* prevents overflow from causing scrollbars */
 }
 
-/* below the fold (simple, still neon) */
+/* BELOW THE FOLD */
 section{scroll-margin-top:12svh}
-#details{padding:56px 0 64px;background:linear-gradient(#09051a, #070317)}
+#details{padding:clamp(32px,6vw,56px) 0 clamp(36px,7vw,64px);background:linear-gradient(#09051a,#070317)}
+.wrap{max-width:980px;margin-inline:auto;padding-inline:clamp(16px,4vw,28px)}
 .cards{display:grid;gap:14px;grid-template-columns:1fr}
 @media (min-width:720px){.cards{grid-template-columns:repeat(3,1fr)}}
 .card{
   background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.25);
-  border-radius:12px;padding:14px 12px 12px;backdrop-filter:blur(8px) saturate(140%);-webkit-backdrop-filter:blur(8px) saturate(140%);
+  border-radius:12px;padding:14px 12px;backdrop-filter:blur(8px) saturate(140%);-webkit-backdrop-filter:blur(8px) saturate(140%);
   text-align:center;box-shadow:0 12px 30px rgba(0,0,0,.55)
 }
-.card h3{margin:.2rem 0 .1rem;font-size:var(--s0);font-weight:900;color:#fff;text-transform:uppercase;
-  text-shadow:0 0 10px #fff,0 0 28px #8b5cff,0 0 46px #31e7dd}
-.card p{margin:0;color:#fff;opacity:.95}
+.card h3{margin:.2rem 0 .1rem;font-size:var(--s0);font-weight:900;text-transform:uppercase;
+  text-shadow:0 0 10px #fff,0 0 28px var(--violet),0 0 46px var(--aqua)}
+.card p{margin:0;color:#fff;opacity:.96}
 
-#rsvp{padding:44px 0 64px;text-align:center;background:linear-gradient(#070317,#060214)}
+#rsvp{padding:clamp(34px,6vw,52px) 0 clamp(48px,8vw,64px);text-align:center;background:linear-gradient(#070317,#060214)}
 .neon-link{
   display:inline-block;font-family:var(--display);font-size:var(--s1);letter-spacing:.02em;color:#fff;text-decoration:none;position:relative;
-  text-shadow:0 0 12px #fff,0 0 34px #ffe666,0 0 60px #31e7dd,0 0 90px #ff49c6;
+  text-shadow:0 0 12px #fff,0 0 34px var(--yellow),0 0 60px var(--aqua),0 0 90px var(--magenta);
 }
 .neon-link::after{
   content:"";position:absolute;left:-6%;right:-6%;bottom:-4px;height:2px;
   background:linear-gradient(90deg,var(--orange),var(--yellow),var(--aqua),var(--magenta),var(--orange));
-  box-shadow:0 0 24px #31e7dd,0 0 44px #ff49c6;animation:shimmer 3.2s linear infinite;
+  box-shadow:0 0 24px var(--aqua),0 0 44px var(--magenta);animation:shimmer 3.2s linear infinite;
 }
-.neon-sub{display:block;margin-top:.4rem;color:#fff;opacity:.95;text-shadow:0 0 10px #fff,0 0 28px #8b5cff}
+.neon-sub{display:block;margin-top:.4rem;opacity:.96;text-shadow:0 0 10px #fff,0 0 28px var(--violet)}
 
-#footer{padding:28px 0 40px;text-align:center;color:#fff;background:#060214}
+#footer{padding:28px 0 40px;text-align:center;background:#060214;color:#fff}
 
-/* ----------- ANIMATIONS ----------- */
+/* ANIMATIONS */
 @keyframes sd1{0%{background-position:0 0}100%{background-position:300% -300%}}
 @keyframes sd2{0%{background-position:0 0}100%{background-position:-260% 240%}}
 @keyframes sd3{0%{background-position:0 0}100%{background-position:200% -200%}}
 @keyframes shimmer{to{transform:rotate(360deg)}}
-@keyframes gridGlow{
-  0%{filter:drop-shadow(0 0 14px rgba(139,92,255,.6))}
-  100%{filter:drop-shadow(0 0 26px rgba(49,231,221,.7))}
-}
+@keyframes gridGlow{0%{filter:drop-shadow(0 0 14px rgba(139,92,255,.6))}100%{filter:drop-shadow(0 0 26px rgba(49,231,221,.7))}}
 @media (prefers-reduced-motion: reduce){
   .star,.star2,.star3,.floor,.neon-link::after{animation:none !important}
 }
@@ -214,7 +175,7 @@ section{scroll-margin-top:12svh}
   <div class="star2" aria-hidden="true"></div>
   <div class="star3" aria-hidden="true"></div>
 
-  <div class="wrap stack">
+  <div class="stack">
     <p class="kicker">DISCO SHOWDOWN</p>
     <h1 class="title">COWBOY vs ALIEN</h1>
     <p class="subtitle">Roswell × <em>The Good, The Bad &amp; The Ugly</em> × <em>Saturday Night Fever</em></p>
@@ -232,29 +193,23 @@ section{scroll-margin-top:12svh}
     </p>
   </div>
 
-  <!-- floor grid like the reference -->
   <div class="floor" aria-hidden="true"></div>
 
-  <!-- Hidden img only to provide alt text for screen readers (background is CSS) -->
-  <img src="poster.jpg" alt="Affiche Halloween Cowboys vs Aliens : cowboy et extraterrestre DJ sous boule disco, ambiance néon, citrouilles et skyline nocturne." width="1" height="1" style="position:absolute;opacity:0;pointer-events:none" />
+  <img src="poster.jpg" alt="Affiche Halloween Cowboys vs Aliens : cowboy et extraterrestre DJ sous boule disco, ambiance néon." width="1" height="1" style="position:absolute;opacity:0;pointer-events:none" />
 </header>
 
 <main>
-  <!-- Simple neon detail cards (optional below the fold) -->
   <section id="details" class="wrap" aria-labelledby="d-title">
     <h2 id="d-title" style="position:absolute;left:-9999px">Détails</h2>
     <div class="cards" role="list">
       <article class="card" role="listitem">
-        <h3>Dress code</h3>
-        <p>Cowboy disco, Alien glamour ou Extraterrestre country !</p>
+        <h3>Dress code</h3><p>Cowboy disco, Alien glamour ou Extraterrestre country !</p>
       </article>
       <article class="card" role="listitem">
-        <h3>Musique</h3>
-        <p>Disco-country-électro des années 70-80 !</p>
+        <h3>Musique</h3><p>Disco-country-électro des années 70-80 !</p>
       </article>
       <article class="card" role="listitem">
-        <h3>Boissons</h3>
-        <p>Cocktails cosmiques &amp; shooters spatiaux inclus !</p>
+        <h3>Boissons</h3><p>Cocktails cosmiques &amp; shooters spatiaux inclus !</p>
       </article>
     </div>
   </section>
@@ -267,19 +222,18 @@ section{scroll-margin-top:12svh}
 </main>
 
 <footer id="footer" role="contentinfo">
-  © 2025 — Halloween « Cowboys vs Aliens » — site mobile-first & accessible.
+  © 2025 — Halloween « Cowboys vs Aliens » — mobile-first & accessible.
 </footer>
 
 <script>
-/* Poster-like parallax: move neon sun and background on scroll */
+/* Gentle parallax that won’t break centering */
 const hero = document.getElementById('hero');
 const sun = document.querySelector('.neon-sun');
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 function onScroll(){
   const r = hero.getBoundingClientRect();
   const p = Math.min(Math.max((0 - r.top)/Math.max(1, r.height), 0), 1);
-  sun.style.transform = `translateY(${p*10}px) scale(1.00)`;
-  hero.style.setProperty('--bgY', (p*60)+'px'); /* used by potential bg var */
+  sun.style.transform = `translateX(-50%) translateY(${p*10}px)`; // keep centered, add slight float
 }
 if(!reduce){ addEventListener('scroll', onScroll, {passive:true}); }
 </script>
