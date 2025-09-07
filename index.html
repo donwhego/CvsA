@@ -5,86 +5,91 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <title>COWBOY vs ALIEN — DISCO SHOWDOWN</title>
 <meta name="description" content="Roswell rencontre The Good, The Bad & The Ugly rencontre Saturday Night Fever. Vendredi 31 octobre 2025, à partir de 19h00. DJ HAMZA ZAZA aux platines !" />
+<!-- Social previews -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="COWBOY vs ALIEN — DISCO SHOWDOWN" />
-<meta property="og:description" content="Halloween — 31/10/2025 — 19h — DJ HAMZA ZAZA — Cowboy disco x Alien glamour." />
+<meta property="og:description" content="Halloween — 31/10/2025 — 19h — DJ HAMZA ZAZA — Cowboy disco × Alien glamour." />
 <meta property="og:image" content="poster.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="COWBOY vs ALIEN — DISCO SHOWDOWN" />
 <meta name="twitter:description" content="Roswell rencontre The Good, The Bad & The Ugly rencontre Saturday Night Fever." />
 <meta name="twitter:image" content="poster.jpg" />
+
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+
 <style>
+/* ====== PALETTE / TYPE ====== */
 :root{
   --violet:#8b5cff; --magenta:#ff49c6; --aqua:#31e7dd; --yellow:#ffe666; --orange:#ff5a1f;
   --display:"Alfa Slab One",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   --body:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  --s-1:clamp(.9rem,.85rem + .3vw,1rem); --s0:clamp(1rem,.9rem + 1vw,1.12rem);
-  --s1:clamp(1.28rem,1.05rem + 2.2vw,1.8rem); --s2:clamp(2rem,1.45rem + 4.4vw,3rem);
-  --s3:clamp(3.2rem,2rem + 7vw,4.8rem); --s4:clamp(4.4rem,2.6rem + 11vw,7rem);
+
+  /* fluid sizes tuned for phones first */
+  --s-1:clamp(.9rem,.85rem + .3vw,1rem);
+  --s0: clamp(1rem,.9rem + 1vw,1.12rem);
+  --s1: clamp(1.25rem,1.05rem + 2.2vw,1.8rem);
+  --s4: clamp(4rem,2.6rem + 11vw,6.6rem);
 }
+
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
   margin:0;color:#fff;font-family:var(--body);line-height:1.55;
-  background:
-    radial-gradient(1200px 900px at 85% -10%, rgba(255,73,198,.18), transparent 60%),
-    radial-gradient(1200px 900px at 15% -10%, rgba(49,231,221,.16), transparent 60%),
-    linear-gradient(#12082c,#07031a);
-  overflow-x:hidden; /* prevent side scroll on small phones */
+  background:linear-gradient(#12082c,#07031a);
+  overflow-x:hidden; /* NO sideways scroll, ever */
 }
-a{color:var(--aqua)}
-/* Poster texture + vignette */
+
+/* faint poster texture on whole page (very light) */
 body::after{
   content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;
-  background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.6)), url('poster.jpg') center/cover no-repeat;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.65)),
+    url('poster.jpg') center/cover no-repeat;
   opacity:.12;mix-blend-mode:screen;
 }
 
-/* ---------- HERO ---------- */
+.wrap{max-width:980px;margin-inline:auto;padding-inline:clamp(16px,4vw,28px)}
+
+/* ====== HERO ====== */
 #hero{
-  position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden;
-  padding:env(safe-area-inset-top) 0 0;
+  position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;
+  overflow:hidden; /* contain effects */
+  background:#0a0619;
 }
-/* centered sun/arc */
+
+/* USE poster.jpg directly as hero background */
+#hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background-image:url('poster.jpg');
+  background-size:cover;background-position:center var(--heroY, 0px);
+  filter:saturate(1.18) contrast(1.08) brightness(.9);
+}
+
+/* center “sun/arc” exactly behind the title */
 .neon-sun{
-  position:absolute;left:50%;bottom:38%;transform:translateX(-50%);
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-60%);
   width:min(110vw,560px);height:min(110vw,560px);border-radius:50%;
   background:
     radial-gradient(closest-side, #ffffff 0 7%, #ffe9ff 8% 14%, rgba(255,255,255,0) 16%),
     radial-gradient(closest-side at 50% 60%, #ff5bd7, #c246ff 40%, #7a4bff 70%, rgba(122,75,255,0) 72%);
-  filter:blur(2px) saturate(1.3);
+  filter:blur(2px) saturate(1.35);
   box-shadow:0 0 60px #b07cff, 0 0 120px #ff52a2, 0 0 160px #33e7dd;
-  z-index:0;
+  pointer-events:none;
 }
-.neon-sun::after{content:"";position:absolute;inset:50% -40% -20% -40%;
-  background:linear-gradient(to bottom, rgba(122,75,255,.45), rgba(10,5,26,0) 60%)}
-/* star layers */
-.star,.star2,.star3{position:absolute;inset:0;z-index:0;pointer-events:none;mix-blend-mode:screen}
-.star{background:
-  radial-gradient(1.4px 1.4px at 8% 22%, #fff, transparent 50%),
-  radial-gradient(1.4px 1.4px at 74% 12%, #fff, transparent 50%),
-  radial-gradient(1.4px 1.4px at 58% 64%, #fff, transparent 50%),
-  radial-gradient(1.4px 1.4px at 32% 82%, #fff, transparent 50%);opacity:.55;animation:sd1 80s linear infinite}
-.star2{background:
-  radial-gradient(1.8px 1.8px at 20% 50%, #fff, transparent 50%),
-  radial-gradient(1.8px 1.8px at 80% 40%, #fff, transparent 50%),
-  radial-gradient(1.8px 1.8px at 50% 75%, #fff, transparent 50%);opacity:.42;animation:sd2 105s linear infinite}
-.star3{background:
-  radial-gradient(2px 2px at 40% 30%, #fff, transparent 45%),
-  radial-gradient(2px 2px at 15% 70%, #fff, transparent 45%);opacity:.34;animation:sd3 130s linear infinite}
 
 /* centered content stack */
 .stack{
   position:relative;z-index:1;display:grid;gap:.6rem;place-items:center;
-  width:min(92vw,720px); /* <- keeps perfect centering on mobile */
+  width:min(92vw,560px);  /* <- hard center on phones */
   margin-inline:auto;margin-top:clamp(28px,6vh,64px);
   text-wrap:balance;
 }
+
 .kicker{
   letter-spacing:.18em;text-transform:uppercase;font-weight:900;font-size:var(--s0);
   text-shadow:0 0 10px #fff,0 0 28px var(--violet),0 0 48px var(--aqua);
 }
+
 .title{
   font-family:var(--display);font-size:var(--s4);line-height:1;letter-spacing:.02em;margin:0;
   background:
@@ -93,12 +98,13 @@ body::after{
   -webkit-background-clip:text;background-clip:text;color:transparent;
   text-shadow:0 0 12px #fff,0 0 40px var(--violet),0 0 60px var(--aqua),0 0 90px var(--magenta);
 }
+
 .subtitle{
   font-weight:900;font-size:var(--s1);margin:0;
   text-shadow:0 0 10px #fff,0 0 30px var(--yellow),0 0 60px var(--aqua);
 }
 
-/* DJ block + separators */
+/* DJ block + separators (like reference) */
 .dj-block{margin-top:clamp(12px,2vh,22px);display:inline-grid;gap:.35rem;place-items:center}
 .dj-name{
   font-weight:900;font-size:var(--s1);letter-spacing:.08em;text-transform:uppercase;color:#fff;
@@ -113,24 +119,22 @@ body::after{
 }
 .date-strip .line{height:1px;width:64px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.8),transparent)}
 
-/* Grid floor centered & clipped */
+/* perspective grid floor — strictly within viewport and centered */
 .floor{
-  position:absolute;left:50%;bottom:-1px;translate:-50% 0;
-  width:120vw;max-width:1400px;height:40svh;max-height:360px;pointer-events:none;
+  position:absolute;left:50%;bottom:-1px;transform:translateX(-50%) perspective(680px) rotateX(62deg);
+  transform-origin:center bottom;
+  width:100vw;height:38svh;max-height:340px;pointer-events:none;clip-path:inset(0); /* clip avoids overflow */
   background:
-    repeating-linear-gradient(transparent 0 22px, rgba(255,255,255,.18) 22px 23px),
-    repeating-linear-gradient(90deg, transparent 0 22px, rgba(255,255,255,.18) 22px 23px),
-    radial-gradient(120% 100% at 50% -20%, rgba(139,92,255,.32), rgba(0,0,0,0) 60%);
-  transform:perspective(680px) rotateX(62deg);
-  box-shadow:0 -30px 60px rgba(139,92,255,.3) inset;
+    repeating-linear-gradient(transparent 0 22px, rgba(255,255,255,.20) 22px 23px),
+    repeating-linear-gradient(90deg, transparent 0 22px, rgba(255,255,255,.20) 22px 23px),
+    radial-gradient(120% 100% at 50% -20%, rgba(139,92,255,.34), rgba(0,0,0,0) 60%);
+  box-shadow:0 -30px 60px rgba(139,92,255,.30) inset;
   animation:gridGlow 6s ease-in-out infinite alternate;
-  clip-path:inset(0 0 0 0 round 0); /* prevents overflow from causing scrollbars */
 }
 
-/* BELOW THE FOLD */
+/* ====== BELOW THE FOLD (simple, still neon) ====== */
 section{scroll-margin-top:12svh}
 #details{padding:clamp(32px,6vw,56px) 0 clamp(36px,7vw,64px);background:linear-gradient(#09051a,#070317)}
-.wrap{max-width:980px;margin-inline:auto;padding-inline:clamp(16px,4vw,28px)}
 .cards{display:grid;gap:14px;grid-template-columns:1fr}
 @media (min-width:720px){.cards{grid-template-columns:repeat(3,1fr)}}
 .card{
@@ -156,25 +160,21 @@ section{scroll-margin-top:12svh}
 
 #footer{padding:28px 0 40px;text-align:center;background:#060214;color:#fff}
 
-/* ANIMATIONS */
-@keyframes sd1{0%{background-position:0 0}100%{background-position:300% -300%}}
-@keyframes sd2{0%{background-position:0 0}100%{background-position:-260% 240%}}
-@keyframes sd3{0%{background-position:0 0}100%{background-position:200% -200%}}
+/* ====== ANIMATIONS ====== */
 @keyframes shimmer{to{transform:rotate(360deg)}}
 @keyframes gridGlow{0%{filter:drop-shadow(0 0 14px rgba(139,92,255,.6))}100%{filter:drop-shadow(0 0 26px rgba(49,231,221,.7))}}
 @media (prefers-reduced-motion: reduce){
-  .star,.star2,.star3,.floor,.neon-link::after{animation:none !important}
+  .floor,.neon-link::after{animation:none !important}
 }
 </style>
 </head>
 <body>
 
-<header id="hero" role="banner" aria-label="Affiche style disco avec arc néon et grille">
+<header id="hero" role="banner" aria-label="Affiche disco centrée avec fond poster.jpg">
+  <!-- centered neon arc -->
   <div class="neon-sun" aria-hidden="true"></div>
-  <div class="star" aria-hidden="true"></div>
-  <div class="star2" aria-hidden="true"></div>
-  <div class="star3" aria-hidden="true"></div>
 
+  <!-- headline stack -->
   <div class="stack">
     <p class="kicker">DISCO SHOWDOWN</p>
     <h1 class="title">COWBOY vs ALIEN</h1>
@@ -193,8 +193,10 @@ section{scroll-margin-top:12svh}
     </p>
   </div>
 
+  <!-- centered in-viewport grid -->
   <div class="floor" aria-hidden="true"></div>
 
+  <!-- tiny image only for alt text parity; real bg is CSS above -->
   <img src="poster.jpg" alt="Affiche Halloween Cowboys vs Aliens : cowboy et extraterrestre DJ sous boule disco, ambiance néon." width="1" height="1" style="position:absolute;opacity:0;pointer-events:none" />
 </header>
 
@@ -202,15 +204,9 @@ section{scroll-margin-top:12svh}
   <section id="details" class="wrap" aria-labelledby="d-title">
     <h2 id="d-title" style="position:absolute;left:-9999px">Détails</h2>
     <div class="cards" role="list">
-      <article class="card" role="listitem">
-        <h3>Dress code</h3><p>Cowboy disco, Alien glamour ou Extraterrestre country !</p>
-      </article>
-      <article class="card" role="listitem">
-        <h3>Musique</h3><p>Disco-country-électro des années 70-80 !</p>
-      </article>
-      <article class="card" role="listitem">
-        <h3>Boissons</h3><p>Cocktails cosmiques &amp; shooters spatiaux inclus !</p>
-      </article>
+      <article class="card" role="listitem"><h3>Dress code</h3><p>Cowboy disco, Alien glamour ou Extraterrestre country !</p></article>
+      <article class="card" role="listitem"><h3>Musique</h3><p>Disco-country-électro des années 70-80 !</p></article>
+      <article class="card" role="listitem"><h3>Boissons</h3><p>Cocktails cosmiques &amp; shooters spatiaux inclus !</p></article>
     </div>
   </section>
 
@@ -226,16 +222,16 @@ section{scroll-margin-top:12svh}
 </footer>
 
 <script>
-/* Gentle parallax that won’t break centering */
-const hero = document.getElementById('hero');
-const sun = document.querySelector('.neon-sun');
+/* Gentle parallax on the poster background WITHOUT breaking centering */
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-function onScroll(){
-  const r = hero.getBoundingClientRect();
-  const p = Math.min(Math.max((0 - r.top)/Math.max(1, r.height), 0), 1);
-  sun.style.transform = `translateX(-50%) translateY(${p*10}px)`; // keep centered, add slight float
+if(!reduce){
+  const hero = document.getElementById('hero');
+  addEventListener('scroll', () => {
+    const r = hero.getBoundingClientRect();
+    const p = Math.min(Math.max((0 - r.top)/Math.max(1, r.height), 0), 1);
+    hero.style.setProperty('--heroY', (p*60)+'px'); // only vertical shift of bg image
+  }, {passive:true});
 }
-if(!reduce){ addEventListener('scroll', onScroll, {passive:true}); }
 </script>
 </body>
 </html>
