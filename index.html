@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <title>COWBOY vs ALIEN — DISCO SHOWDOWN</title>
 <meta name="description" content="Roswell rencontre The Good, The Bad & The Ugly rencontre Saturday Night Fever. Vendredi 31 octobre 2025, à partir de 19h00. DJ HAMZA ZAZA aux platines !" />
-<!-- Social previews -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="COWBOY vs ALIEN — DISCO SHOWDOWN" />
 <meta property="og:description" content="Halloween — 31/10/2025 — 19h — DJ HAMZA ZAZA — Cowboy disco × Alien glamour." />
@@ -14,50 +13,42 @@
 <meta name="twitter:title" content="COWBOY vs ALIEN — DISCO SHOWDOWN" />
 <meta name="twitter:description" content="Roswell rencontre The Good, The Bad & The Ugly rencontre Saturday Night Fever." />
 <meta name="twitter:image" content="poster.jpg" />
-
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-
 <style>
-/* ====== PALETTE / TYPE ====== */
 :root{
   --violet:#8b5cff; --magenta:#ff49c6; --aqua:#31e7dd; --yellow:#ffe666; --orange:#ff5a1f;
   --display:"Alfa Slab One",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   --body:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-
-  /* fluid sizes tuned for phones first */
   --s-1:clamp(.9rem,.85rem + .3vw,1rem);
   --s0: clamp(1rem,.9rem + 1vw,1.12rem);
   --s1: clamp(1.25rem,1.05rem + 2.2vw,1.8rem);
-  --s4: clamp(4rem,2.6rem + 11vw,6.6rem);
+  --s4: clamp(3.9rem,2.6rem + 11vw,6.4rem);
 }
-
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
   margin:0;color:#fff;font-family:var(--body);line-height:1.55;
   background:linear-gradient(#12082c,#07031a);
-  overflow-x:hidden; /* NO sideways scroll, ever */
+  overflow-x:hidden; /* prevent horizontal drift in in-app browsers */
 }
 
-/* faint poster texture on whole page (very light) */
+/* very light poster texture everywhere */
 body::after{
   content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.65)),
+    linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.62)),
     url('poster.jpg') center/cover no-repeat;
   opacity:.12;mix-blend-mode:screen;
 }
 
 .wrap{max-width:980px;margin-inline:auto;padding-inline:clamp(16px,4vw,28px)}
 
-/* ====== HERO ====== */
+/* ========== HERO ========== */
 #hero{
   position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;
-  overflow:hidden; /* contain effects */
-  background:#0a0619;
+  overflow:hidden;background:#0a0619;
 }
-
-/* USE poster.jpg directly as hero background */
+/* DIRECTLY use poster.jpg as hero bg */
 #hero::before{
   content:"";position:absolute;inset:0;z-index:-1;
   background-image:url('poster.jpg');
@@ -65,10 +56,11 @@ body::after{
   filter:saturate(1.18) contrast(1.08) brightness(.9);
 }
 
-/* center “sun/arc” exactly behind the title */
+/* perfectly centered “sun/arc” — no vw, no translateX */
 .neon-sun{
-  position:absolute;left:50%;top:50%;transform:translate(-50%,-60%);
-  width:min(110vw,560px);height:min(110vw,560px);border-radius:50%;
+  position:absolute;inset-inline:0;top:50%;margin-inline:auto;
+  width:100%;max-width:560px;aspect-ratio:1/1;border-radius:50%;
+  transform:translateY(-60%); /* only vertical adjust */
   background:
     radial-gradient(closest-side, #ffffff 0 7%, #ffe9ff 8% 14%, rgba(255,255,255,0) 16%),
     radial-gradient(closest-side at 50% 60%, #ff5bd7, #c246ff 40%, #7a4bff 70%, rgba(122,75,255,0) 72%);
@@ -80,16 +72,14 @@ body::after{
 /* centered content stack */
 .stack{
   position:relative;z-index:1;display:grid;gap:.6rem;place-items:center;
-  width:min(92vw,560px);  /* <- hard center on phones */
-  margin-inline:auto;margin-top:clamp(28px,6vh,64px);
-  text-wrap:balance;
+  width:100%;max-width:560px;margin-inline:auto;margin-top:clamp(28px,6vh,64px);
+  padding-inline:16px;text-wrap:balance;
 }
 
 .kicker{
   letter-spacing:.18em;text-transform:uppercase;font-weight:900;font-size:var(--s0);
   text-shadow:0 0 10px #fff,0 0 28px var(--violet),0 0 48px var(--aqua);
 }
-
 .title{
   font-family:var(--display);font-size:var(--s4);line-height:1;letter-spacing:.02em;margin:0;
   background:
@@ -98,41 +88,41 @@ body::after{
   -webkit-background-clip:text;background-clip:text;color:transparent;
   text-shadow:0 0 12px #fff,0 0 40px var(--violet),0 0 60px var(--aqua),0 0 90px var(--magenta);
 }
-
 .subtitle{
   font-weight:900;font-size:var(--s1);margin:0;
   text-shadow:0 0 10px #fff,0 0 30px var(--yellow),0 0 60px var(--aqua);
 }
 
-/* DJ block + separators (like reference) */
+/* outlined DJ line + separators */
 .dj-block{margin-top:clamp(12px,2vh,22px);display:inline-grid;gap:.35rem;place-items:center}
 .dj-name{
   font-weight:900;font-size:var(--s1);letter-spacing:.08em;text-transform:uppercase;color:#fff;
   -webkit-text-stroke:2px rgba(255,255,255,.95);
   text-shadow:0 0 12px #fff,0 0 36px var(--violet),0 0 60px var(--aqua);
 }
-.sep{height:1px;width:min(520px,86vw);background:linear-gradient(90deg,transparent,rgba(255,255,255,.8),transparent);margin:.45rem auto}
+.sep{height:1px;width:100%;max-width:520px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.8),transparent);margin:.45rem auto}
 .date-strip{
-  display:flex;gap:.6rem;align-items:center;justify-content:center;
+  display:flex;gap:.6rem;align-items:center;justify-content:center;flex-wrap:wrap;
   font-weight:800;font-size:var(--s-1);letter-spacing:.18em;text-transform:uppercase;
   text-shadow:0 0 8px #fff,0 0 22px var(--violet);
 }
 .date-strip .line{height:1px;width:64px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.8),transparent)}
 
-/* perspective grid floor — strictly within viewport and centered */
+/* grid floor — centered & clipped INSIDE hero */
 .floor{
-  position:absolute;left:50%;bottom:-1px;transform:translateX(-50%) perspective(680px) rotateX(62deg);
-  transform-origin:center bottom;
-  width:100vw;height:38svh;max-height:340px;pointer-events:none;clip-path:inset(0); /* clip avoids overflow */
+  position:absolute;inset-inline:0;bottom:-1px;margin-inline:auto;
+  width:100%;max-width:980px;height:38svh;max-height:340px;pointer-events:none;
+  transform:perspective(680px) rotateX(62deg);transform-origin:center bottom;
   background:
     repeating-linear-gradient(transparent 0 22px, rgba(255,255,255,.20) 22px 23px),
     repeating-linear-gradient(90deg, transparent 0 22px, rgba(255,255,255,.20) 22px 23px),
     radial-gradient(120% 100% at 50% -20%, rgba(139,92,255,.34), rgba(0,0,0,0) 60%);
   box-shadow:0 -30px 60px rgba(139,92,255,.30) inset;
   animation:gridGlow 6s ease-in-out infinite alternate;
+  clip-path:inset(0); /* prevents any overflow that could shift the page */
 }
 
-/* ====== BELOW THE FOLD (simple, still neon) ====== */
+/* BELOW THE FOLD */
 section{scroll-margin-top:12svh}
 #details{padding:clamp(32px,6vw,56px) 0 clamp(36px,7vw,64px);background:linear-gradient(#09051a,#070317)}
 .cards{display:grid;gap:14px;grid-template-columns:1fr}
@@ -160,7 +150,7 @@ section{scroll-margin-top:12svh}
 
 #footer{padding:28px 0 40px;text-align:center;background:#060214;color:#fff}
 
-/* ====== ANIMATIONS ====== */
+/* ANIMATIONS */
 @keyframes shimmer{to{transform:rotate(360deg)}}
 @keyframes gridGlow{0%{filter:drop-shadow(0 0 14px rgba(139,92,255,.6))}100%{filter:drop-shadow(0 0 26px rgba(49,231,221,.7))}}
 @media (prefers-reduced-motion: reduce){
@@ -171,10 +161,8 @@ section{scroll-margin-top:12svh}
 <body>
 
 <header id="hero" role="banner" aria-label="Affiche disco centrée avec fond poster.jpg">
-  <!-- centered neon arc -->
   <div class="neon-sun" aria-hidden="true"></div>
 
-  <!-- headline stack -->
   <div class="stack">
     <p class="kicker">DISCO SHOWDOWN</p>
     <h1 class="title">COWBOY vs ALIEN</h1>
@@ -193,10 +181,9 @@ section{scroll-margin-top:12svh}
     </p>
   </div>
 
-  <!-- centered in-viewport grid -->
   <div class="floor" aria-hidden="true"></div>
 
-  <!-- tiny image only for alt text parity; real bg is CSS above -->
+  <!-- tiny image for alt text parity -->
   <img src="poster.jpg" alt="Affiche Halloween Cowboys vs Aliens : cowboy et extraterrestre DJ sous boule disco, ambiance néon." width="1" height="1" style="position:absolute;opacity:0;pointer-events:none" />
 </header>
 
@@ -222,14 +209,14 @@ section{scroll-margin-top:12svh}
 </footer>
 
 <script>
-/* Gentle parallax on the poster background WITHOUT breaking centering */
+/* vertical-only parallax on the poster background (no horizontal drift) */
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(!reduce){
   const hero = document.getElementById('hero');
   addEventListener('scroll', () => {
     const r = hero.getBoundingClientRect();
     const p = Math.min(Math.max((0 - r.top)/Math.max(1, r.height), 0), 1);
-    hero.style.setProperty('--heroY', (p*60)+'px'); // only vertical shift of bg image
+    hero.style.setProperty('--heroY', (p*60)+'px');
   }, {passive:true});
 }
 </script>
